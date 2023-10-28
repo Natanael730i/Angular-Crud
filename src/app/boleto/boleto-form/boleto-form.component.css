@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.button-container {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.center-div {
+  width: 400px; /* Largura desejada para a div */
+  height: 400px; /* Altura desejada para a div */
+  background-color: white; /* Cor de fundo da div */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Centraliza o conteúdo horizontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,0 +1,20 @@
+<div class="center-div">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="teste">
+    <h1>Cadastro de Pessoa</h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Nome da Pessoa</mat-label>
+    <input id="nome" type="text" name="nome" ngModel matInput placeholder="Ex. Marcos" value="">
+    <mat-icon matSuffix>person</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Limite</mat-label>
+    <input id="valor" type="number" name="valorLimiteBoletos" ngModel matInput placeholder="Ex. 1500,00" value="">
+    <mat-icon matSuffix>monetization_on </mat-icon>
+  </mat-form-field>
+    <div class="button-container">
+      <button mat-raised-button color="primary">Salvar</button>
+      <button mat-raised-button color="primary" (click)="cancela()">Cancelar</button>
+    </div>
+  </form>
+</div>
+

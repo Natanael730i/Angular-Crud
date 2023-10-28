@@ -1,0 +1,28 @@
+<p>boleto-form works!</p>
+
+<div class="center-div">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="teste">
+    <h1>Cadastro de Pessoa</h1>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome Cliente</mat-label>
+      <input matInput name="nome">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Valor do Boleto</mat-label>
+      <input matInput type="number">
+      <mat-icon matSuffix>monetization_on </mat-icon>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Vencimento Boleto</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-raised-button color="primary">Salvar</button>
+      <button mat-raised-button color="primary" (click)="cancela()" routerLink="">Cancelar</button>
+    </div>
+  </form>
+</div>
