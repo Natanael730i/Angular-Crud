@@ -23,7 +23,7 @@ input {
   width: 100%;
 }
 
-.center-div {
+.center-div-pessoa {
   width: 400px; /* Largura desejada para a div */
   height: 400px; /* Altura desejada para a div */
   background-color: white; /* Cor de fundo da div */
@@ -35,4 +35,9 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.toolbar{
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
 }

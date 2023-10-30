@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class BoletoService {
-  private API = 'http://localhost:8080/boleto/';
+  private readonly API = 'http://localhost:8080/boleto/';
   constructor(private http: HttpClient) { }
 
   save(boleto:Boleto){

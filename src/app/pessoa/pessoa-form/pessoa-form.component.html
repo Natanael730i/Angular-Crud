@@ -1,20 +1,30 @@
-<div class="center-div">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="teste">
-    <h1>Cadastro de Pessoa</h1>
-  <mat-form-field appearance="outline">
-    <mat-label>Nome da Pessoa</mat-label>
-    <input id="nome" type="text" name="nome" ngModel matInput placeholder="Ex. Marcos" value="">
-    <mat-icon matSuffix>person</mat-icon>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Limite</mat-label>
-    <input id="valor" type="number" name="valorLimiteBoletos" ngModel matInput placeholder="Ex. 1500,00" value="">
-    <mat-icon matSuffix>monetization_on </mat-icon>
-  </mat-form-field>
+<div class="center-div-pessoa">
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form)" novalidate class="teste">
+    <mat-toolbar class="toolbar" color="primary">
+      <h1>Cadastro de Pessoa</h1>
+    </mat-toolbar>
+    <mat-form-field>
+      <input id="id" type="text" name="id" matInput placeholder="ID Pessoa" formControlName="id">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome da Pessoa</mat-label>
+      <input id="nome" type="text" name="nome" matInput placeholder="Ex. Marcos" formControlName="nome">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Limite</mat-label>
+      <input id="valor" type="number" name="valorLimiteBoletos" matInput placeholder="Ex. 1500,00" formControlName="valorLimiteBoletos">
+      <mat-icon matSuffix>monetization_on</mat-icon>
+    </mat-form-field>
     <div class="button-container">
-      <button mat-raised-button color="primary">Salvar</button>
-      <button mat-raised-button color="primary" (click)="cancela()">Cancelar</button>
+      <div *ngIf="form?.get('nome')?.value === '' && form?.get('valorLimiteBoletos')?.value <= 0 else prosiga">
+      <button mat-raised-button color="primary" [disabled]="true">Salvar</button>
+        <button mat-raised-button color="primary" (click)="cancela()">Cancelar</button>
+      </div>
+      <ng-template #prosiga>
+        <button mat-raised-button color="primary">Salvar</button>
+        <button mat-raised-button color="primary" (click)="cancela()">Cancelar</button>
+      </ng-template>
     </div>
   </form>
 </div>
-

@@ -1,3 +1,16 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+.center-div {
+  width: 400px; /* Largura desejada para a div */
+  height: 400px; /* Altura desejada para a div */
+  background-color: white; /* Cor de fundo da div */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Centraliza o conteúdo horizontalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

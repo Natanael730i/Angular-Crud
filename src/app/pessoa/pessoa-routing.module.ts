@@ -3,7 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {PessoaFormComponent} from './pessoa-form/pessoa-form.component';
 
 const routes: Routes = [
-  {path: 'pessoaform', component: PessoaFormComponent}
+  {path: 'pessoaform', component: PessoaFormComponent},
+  {path: 'pessoaform/:id', component: PessoaFormComponent}
 ];
 
 @NgModule({

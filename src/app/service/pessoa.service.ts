@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Pessoa} from "../model/pessoa";
+import {delay, first} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,26 @@ export class PessoaService {
   constructor(private http: HttpClient) { }
 
   list(){
-    return this.http.get<Array<Pessoa>>(this.API + 'list');
+    return this.http.get<Pessoa[]>(this.API + 'list')
+      .pipe(
+        first(),
+        delay(100)
+      );
   }
 
   save(pessoa: Pessoa) {
     return this.http.post(this.API + 'create', pessoa)
   }
 
-  deletar(id: any) {
-    return this.http.delete<any>(this.API + 'delete/' + id)
+  deletar(id: number) {
+    return this.http.delete<void>(this.API + 'delete/' + id);
+  }
+
+  alter(pessoa: Pessoa) {
+    return this.http.put(this.API + 'alter/' + pessoa.id, pessoa)
+  }
+
+  findById(id: number) {
+    return this.http.get<Pessoa>(this.API + id)
   }
 }
